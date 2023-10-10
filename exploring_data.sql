@@ -1,5 +1,3 @@
---- exploring data
-
 ---- checking null values
 select
 count(*) - count(Cnty) Cnty,
