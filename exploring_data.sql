@@ -1,4 +1,4 @@
----- checking null values
+--- checking null values
 select
 count(*) - count(Cnty) Cnty,
 count(*) - count(Pol) Pol,
@@ -17,23 +17,23 @@ count(*) - count(look_up_date) look_up_date,
 count(*) - count(day_of_week) day_of_week
 from `gbs-auditing.gbs_uncreated_invoice.LI_SEA_main`;
 
----- checking length
+--- checking length
 select length(Cnty)as length_cnty
 from `gbs-auditing.gbs_uncreated_invoice.LI_SEA_main`
 group by length_cnty;
 
----- # of bk per cnty
+--- # of bk per cnty
 select Cnty, count(*) as number_of_bk
 from `gbs-auditing.gbs_uncreated_invoice.LI_SEA_main`
 group by Cnty;
 
----- # of bk per svc and cnty
+--- # of bk per svc and cnty
 select Cnty, Clp_Svc ,count (Clp_Svc) as number_of_bk
 from `gbs-auditing.gbs_uncreated_invoice.LI_SEA_main`
 group by Cnty, Clp_Svc
 order by Cnty;
 
----- # bk by columns
+--- # bk by columns
 select Cnty, AOS, CON, ALM, Others
 from
 (select Cnty, Clp_Svc,
