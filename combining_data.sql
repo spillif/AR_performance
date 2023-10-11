@@ -1,7 +1,7 @@
 -- aggregate raw into new dataset
 
 create table gbs-auditing.gbs_uncreated_invoice.LI_SEA_main as 
-(select t1.Cnty, t1.Pol, cust.string_field_2 as Mstr_Cust ,t1.Child_Cust, t1.Voy, t1.ATD, t1.ETD, t1.Bk, t1.Clp_Svc, t1.Fcr, t1.Invoice_Nbr,t2.Sts, t2.Creation_Dt,
+(select t1.Cnty, t1.Pol, cust.string_field_0 as Mstr_Cust ,t1.Child_Cust, t1.Voy, t1.ATD, t1.ETD, t1.Bk, t1.Clp_Svc, t1.Fcr, t1.Invoice_Nbr,t2.Sts, t2.Creation_Dt,
   (select
   case when t1.ATD = t1.ETD
   then t1.ATD
