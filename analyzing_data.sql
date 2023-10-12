@@ -53,7 +53,7 @@ select *, (select
 from `gbs-auditing.gbs_uncreated_invoice.LI_SEA_main`
 where Sts is null and Clp_Svc = 'AOS';
 
---- filter CON shipment without LI - 239278 records - do not know if this is the reasonable number or not - advised by Sandra based off the ad-hoc or inquiry from the shipment -----
+--- filter CON shipment without LI - 233411 records - do not know if this is the reasonable number or not - advised by Sandra based off the ad-hoc or inquiry from the shipment -----
 
 select *, (select
   case when day_of_week ='Friday' or day_of_week='Saturday' then look_up_date + 3
@@ -61,7 +61,7 @@ select *, (select
   else look_up_date +1
   end) as due_date
 from `gbs-auditing.gbs_uncreated_invoice.LI_SEA_main`
-where Sts is null and Clp_Svc = 'CON';
+where Sts is null and Clp_Svc = 'CON' and Child_Cust not in ('UAWEN','UAAIR','XECCL','PNG','GPDC');
 
 --- filter rest of the shipment without LI - 3151 records
 select *, (select
