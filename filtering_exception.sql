@@ -35,8 +35,7 @@ union all
     select * from `gbs-auditing.gbs_uncreated.oi_ytd`
     where Cnty='NV' and Mstr_Cust not in ('GAP','DEICH','XGPWH')
     and Child_Cust not in ('CONVRS','OUTDOR')
-    and Child_Cust not in (select Child_Cust from `gbs-auditing.gbs_uncreated.oi_ytd` where Child_Cust ='SWOOSH' and Clp_Svc in ('EAS','ALM'))
-    and Child_Cust not in (select Child_Cust from `gbs-auditing.gbs_uncreated.oi_ytd` where Child_Cust ='IMAGE' and Clp_Svc in ('EAS','ALM'))
+    and Child_Cust not in (select Child_Cust from `gbs-auditing.gbs_uncreated.oi_ytd` where Child_Cust in ('SWOOSH','IMAGE') and Clp_Svc in ('EAS','ALM'))
     and Child_Cust not in (select Child_Cust from `gbs-auditing.gbs_uncreated.oi_ytd` where Child_Cust ='ARMOUR' and Dest_Cnty ='AU')
   )
 
